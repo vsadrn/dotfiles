@@ -1,14 +1,13 @@
 # dotfiles
 
-i3+neovim
+i3+kitty+neovim
 
-## nvim (kvim folder) dependencies
+## neovim dependencies
 
 - [neovim](https://neovim.io/) - ...
 - [at least a patched font](https://www.nerdfonts.com) for icons, required by some plugins.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) and [fd](https://github.com/sharkdp/fd) for Telescope
-- C compiler for some LSP servers
-- a wallpaper named
+- C compiler for some LSP servers (gcc)
 
 ## i3 dependencies
 

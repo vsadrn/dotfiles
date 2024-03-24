@@ -13,7 +13,7 @@ return {
 		require("luasnip.loaders.from_vscode")
 		local luasnip = require("luasnip")
 
-		require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/kvim/snippets" } })
+		require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/snippets" } })
 
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
