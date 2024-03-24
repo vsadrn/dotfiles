@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Left click
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  amixer -q sset Master 5%+
+# Middle click
+elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
+  amixer -q sset Master toggle
+# Right click
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  amixer -q sset Master 5%-
+fi
+
+VOLUME_MUTE="󰸈 "
+VOLUME_HIGH="󰕾 "
+VOLUME_MID="󰖀 "
+VOLUME_LOW="󰕿 "
+
+
+SOUND_LEVEL=$(amixer -M get Master | awk -F"[][]" '/%/ { print $2 }' | awk -F"%" 'BEGIN{tot=0; i=0} {i++; tot+=$1} END{printf("%s\n", tot/i) }')
+MUTED=$(amixer get Master | awk ' /%/{print ($NF=="[off]" ? 1 : 0); exit;}')
+
+if [ "$MUTED" = "1" ]
+then
+    ICON="$VOLUME_MUTE"
+    COLOR="#ff3333"
+else
+    if [ "$SOUND_LEVEL" -lt 34 ]
+    then
+        ICON="$VOLUME_LOW"
+        COLOR="#7e7e7e"
+    elif [ "$SOUND_LEVEL" -lt 67 ]
+    then
+        ICON="$VOLUME_MID"
+        COLOR="#e0e0e0"
+    else
+        ICON="$VOLUME_HIGH"
+        COLOR="#ff4a55"
+    fi
+fi
+
+
+#echo "$ICON" "$SOUND_LEVEL" "$COLOR" | awk '{ printf("%s %3s%\n %s \n %s", $1, $2, $1, $3) }'
+echo "$ICON $SOUND_LEVEL%"
+echo $ICON
+echo $COLOR
+# if [[ "${status}" == "on" ]]; then
+#   echo " ${SOUND_LEVEL}%"
+#   echo " ${SOUND_LEVEL}%"
+#   echo ""
+# else
+#   echo "off"
+#   echo "off"
+#   echo "#ff2222"
+# fi

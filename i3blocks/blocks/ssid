@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SSID_NAME=$(iw dev | grep ssid | awk '{print $2}')
+
+# You can put any urgent name so the block will give warning
+# if a network with this name is used, like public wifi or alike.
+# You can separate multiple values with \|
+ICON=" "
+ICON_DOWN="󰖪 "
+URGENT_VALUE=""
+
+if [[ "${SSID_NAME}" != "" ]]; then
+  echo "${ICON}  ${SSID_NAME}"
+  echo "${ICON}  ${SSID_NAME}"
+  echo "#e0e0f0"
+
+  #if [[ "${URGENT_VALUE}" != "" ]] && [[ $(echo "${SSID_NAME}" | grep -we "${URGENT_VALUE}") != "" ]]; then
+  #  exit 33
+  #fi
+else
+  echo "${ICON_DOWN} down"
+  echo "down"
+  echo "#ff3333"
+fi

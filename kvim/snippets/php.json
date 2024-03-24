@@ -1,0 +1,45 @@
+{
+  "class ...": {
+    "prefix": "c)",
+    "body": [
+      "/**",
+      "* TODO: Write description",
+      "* ",
+      "* Example usage: ",
+      "* ",
+      "* @package ${1: ClassName}",
+      "* @author Adrian Vesa <hello@adrianvesa.ro>",
+      "* @version 1.0",
+      "* @access public",
+      "* @see https://php.net",
+      "*/",
+      " class ${1:ClassName} ${2:extends}",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+
+  "class method ...": {
+    "prefix": "cfn)",
+    "body": [
+      " /**",
+      "* ",
+      "* TODO: Write description",
+      "* @param  ",
+      "* @return ${3:returns} ",
+      "* @access ${1:access} ",
+      "*/",
+      "${1:access} function ${2:FunctionName}() : ${3: return}",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "Creates a class method with docblock"
+  },
+
+  "class constructor": {
+    "prefix": "con",
+    "body": ["public function __construct()", "{", "\t$0", "}"]
+  }
+}

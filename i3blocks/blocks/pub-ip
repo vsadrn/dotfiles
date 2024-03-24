@@ -1,0 +1,5 @@
+#/bin/bash
+
+cmd=$(curl -4 ifconfig.io)
+echo " $(curl -4 ifconfig.io)"
+
