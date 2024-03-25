@@ -8,7 +8,6 @@ local opts = {
 	wrap = false,
 	autoindent = true,
 	smartindent = true,
-	breakindent = true,
 	cursorline = true,
 	ignorecase = true,
 	smartcase = true,

@@ -39,6 +39,6 @@ return {
 		vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope: find files" })
 		vim.keymap.set("n", "<leader>r", builtin.oldfiles, { desc = "Telescope: old files" })
 		vim.keymap.set("n", "<leader>gr", builtin.live_grep, { desc = "Telescope: live grep" })
-		vim.keymap.set("n", "<leader>fj", builtin.help_tags, { desc = "Telescope: help tags" })
+		--vim.keymap.set("n", "<leader>fj", builtin.help_tags, { desc = "Telescope: help tags" })
 	end,
 }
