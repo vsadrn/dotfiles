@@ -14,7 +14,8 @@ return {
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
-				php = { "php" },
+				--php = { "php" },
+				php = { "phpcbf" },
 				blade = { "blade-formatter" },
 			},
 
