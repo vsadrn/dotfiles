@@ -1,3 +1,5 @@
+local vim = vim
+local api = vim.api
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
@@ -45,3 +47,25 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.shiftwidth = 4
 	end,
 })
+local M = {}
+
+function M.nvim_create_augroups(definitions)
+	for group_name, definition in pairs(definitions) do
+		api.nvim_command("augroup " .. group_name)
+		api.nvim_command("autocmd!")
+		for _, def in ipairs(definition) do
+			local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
+			api.nvim_command(command)
+		end
+		api.nvim_command("augroup END")
+	end
+end
+
+-- local autoCommands = {
+-- 	-- other autocommands
+-- 	open_folds = {
+-- 		{ "BufReadPost,FileReadPost", "*", "normal zR" },
+-- 	},
+-- }
+--
+-- M.nvim_create_augroups(autoCommands)

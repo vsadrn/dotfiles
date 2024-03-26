@@ -24,16 +24,21 @@ local opts = {
 	confirm = false,
 	splitright = true,
 	splitbelow = true,
-	foldmethod = "manual",
-	foldlevel = 99,
 	scrolloff = 4,
 	sidescrolloff = 4,
 	updatetime = 200,
 	virtualedit = "block",
 	clipboard = "unnamedplus",
 	swapfile = false,
+	foldcolumn = "1",
+	foldlevel = 1,
+	foldenable = true,
 }
 
 for k, v in pairs(opts) do
 	vim.opt[k] = v
 end
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
