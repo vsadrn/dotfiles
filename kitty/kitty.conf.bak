@@ -1,14 +1,22 @@
 globinclude settings/*.conf
 
-include kitty-themes/Wez.conf
-cursor #cccccc
-cursor_text_color #111111
+#include kitty-themes/Wez.conf
+#include kitty-themes/gruvbox_dark.conf
+include kitty-themes/Dracula.conf
+# cursor #cccccc
+# cursor_text_color #111111
 cursor_shape block
 cursor_beam_thickness 1.5
 cursor_underline_thickness 2.0
 cursor_blink_interval -1
 cursor_stop_blinking_after 15.0
 
-background_opacity 0.9 
+#background_opacity 0.95
 
 
+
+
+# BEGIN_KITTY_THEME
+# Nightfox
+#include current-theme.conf
+# END_KITTY_THEME
