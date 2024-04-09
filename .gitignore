@@ -36,3 +36,4 @@ xdg-terminals.list
 nvim/lazy-lock.json
 nvim/snippets/php.json
 nvim/snippets/php.snippets
+github-copilot/

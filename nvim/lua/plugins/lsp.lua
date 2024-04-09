@@ -54,14 +54,15 @@ return {
 							"svelte",
 							"typescript",
 							"vue",
-							"php",
 						},
 						init_options = {
 							html = {
 								["bem.enabled"] = true,
 							},
 						},
-						on_attach = function(client, bufnr) end,
+						on_attach = function(client, bufnr)
+							print("emmet_ls attached")
+						end,
 					})
 				end,
 				-- end emmet_language_server

@@ -1,3 +1,5 @@
+---leader@dleaderiagnostic disable-next-line: undefined_variable
+local vim = vim
 vim.g.mapleader = ","
 vim.g.localleader = ","
 
@@ -8,9 +10,16 @@ local function desc(text)
 end
 
 vim.g.mapleader = ","
+
 keymap.set("n", "n", "nzzzv", desc("Go to next match, center line"))
 keymap.set("n", "N", "Nzzzv", desc("Go to prev match, center line"))
 
---keymap.set("n", "<leader>]", "za<cr>", desc("Toggle fold"))
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", desc("Move selected lines down"))
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", desc("Move selected lines up"))
 
-keymap.set("n", "x", '"_x', desc("Delete one character in fron of cursor without copying to clipboard")) -- make x delete a character without copying it to clipboard
+vim.keymap.set("n", "<space>w", ":w<CR>", desc("Save file"))
+vim.keymap.set("n", "<space>Q", ":q!<CR>", desc("Quit file without saving"))
+vim.keymap.set("n", "<space>q", ":q<CR>", desc("Quit file"))
+vim.keymap.set("n", "<space>W", ":wq<CR>", desc("Save and quit file"))
+vim.keymap.set("n", "<c-c><c-c>", ":wq!<CR>", desc("Save and quit file without saving"))
+vim.keymap.set("n", "Q", "@q")

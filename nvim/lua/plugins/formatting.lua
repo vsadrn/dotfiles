@@ -35,6 +35,13 @@ return {
 					},
 					stdin = false,
 				},
+				blade = {
+					command = "blade-formatter",
+					args = {
+						"$FILENAME",
+					},
+					stdin = false,
+				},
 			},
 			vim.keymap.set("n", "<leader>f", function()
 				conform.format({

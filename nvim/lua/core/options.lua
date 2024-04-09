@@ -31,8 +31,7 @@ local opts = {
 	clipboard = "unnamedplus",
 	swapfile = false,
 	foldcolumn = "1",
-	foldlevel = 1,
-	foldenable = true,
+	foldenable = false,
 }
 
 for k, v in pairs(opts) do
@@ -41,4 +40,10 @@ end
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
---vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})

@@ -39,14 +39,14 @@ return {
 
 		local vim = vim
 
-		vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope: find available in git" })
-		vim.keymap.set("n", "<C-S-p>", builtin.find_files, { desc = "Telescope: find files" })
+		vim.keymap.set("n", "<space>p", builtin.git_files, { desc = "Telescope: find available in git" })
+		vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope: find files" })
 		vim.keymap.set("n", "<leader>r", builtin.oldfiles, { desc = "Telescope: old files" })
-		vim.keymap.set("n", "<leader>gr", builtin.live_grep, { desc = "Telescope: live grep" })
+		vim.keymap.set("n", "<space>gr", builtin.live_grep, { desc = "Telescope: live grep" })
 
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Telescope: Lists git commits" })
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Telescope: Lists git branches" })
-		vim.keymap.set("n", "<leader>gs", builtin.git_stash, { desc = "Telescope: Lists git stash" })
+		vim.keymap.set("n", "<space>gc", builtin.git_commits, { desc = "Telescope: Lists git commits" })
+		vim.keymap.set("n", "<space>gb", builtin.git_branches, { desc = "Telescope: Lists git branches" })
+		vim.keymap.set("n", "<space>gs", builtin.git_stash, { desc = "Telescope: Lists git stash" })
 		--vim.keymap.set("n", "<leader>fj", builtin.help_tags, { desc = "Telescope: help tags" })
 	end,
 }

@@ -1,20 +1,16 @@
 local vim = vim
-local api = vim.api
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
 		local keymap = vim.keymap
 		opts.desc = "Show code actions"
-		keymap.set("n", "<leader><leader>", vim.lsp.buf.code_action, opts)
+		keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
 
 		opts.desc = "LSP: Go to definition"
-		keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
 
-		opts.desc = "LSP: Show definitions (Telescope)"
-		keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<cr>", opts)
-
-		opts.desc = "LSP: Show implementations (Telescope)"
-		keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<cr>", opts)
+		opts.desc = "LSP Show immpementation"
+		keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts)
 
 		opts.desc = "LSP: Rename"
 		keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
@@ -47,25 +43,27 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.shiftwidth = 4
 	end,
 })
-local M = {}
 
-function M.nvim_create_augroups(definitions)
-	for group_name, definition in pairs(definitions) do
-		api.nvim_command("augroup " .. group_name)
-		api.nvim_command("autocmd!")
-		for _, def in ipairs(definition) do
-			local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
-			api.nvim_command(command)
-		end
-		api.nvim_command("augroup END")
-	end
-end
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "javascript",
+	callback = function()
+		vim.opt.tabstop = 2
+		vim.opt.softtabstop = 2
+		vim.opt.shiftwidth = 2
+	end,
+})
 
--- local autoCommands = {
--- 	-- other autocommands
--- 	open_folds = {
--- 		{ "BufReadPost,FileReadPost", "*", "normal zR" },
--- 	},
--- }
---
--- M.nvim_create_augroups(autoCommands)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "typescript",
+	callback = function()
+		vim.opt.tabstop = 2
+		vim.opt.softtabstop = 2
+		vim.opt.shiftwidth = 2
+	end,
+})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		require("vim.highlight").on_yank({ timeout = 200 })
+	end,
+})

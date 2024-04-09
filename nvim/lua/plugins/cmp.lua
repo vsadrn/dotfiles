@@ -40,7 +40,7 @@ return {
 				documentation = {},
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+				["<cr>"] = cmp.mapping.confirm({ select = true }),
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["<C-j>"] = cmp.mapping.select_next_item(),
