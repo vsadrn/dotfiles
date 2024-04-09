@@ -10,7 +10,7 @@ exec $silent dex-autostart --autostart --environment i3
 exec $silent xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec $silent nm-applet
 #exec $silent killall -9 picom; picom -b -C ~/.config/picom/picom.conf
-exec $silent feh --bg-scale ~/Pictures/wallpapers/356802.jpg
+exec $silent feh --bg-scale ~/Pictures/wallpapers/827468.jpg
 
 
 # Use pactl to adjust volume in PulseAudio.
